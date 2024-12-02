@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.chh.compose"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.chh.compose"
