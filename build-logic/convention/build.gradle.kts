@@ -5,6 +5,7 @@ plugins {
 dependencies {
     implementation(libs.android.gradlePlugin)
     implementation(libs.kotlin.gradlePlugin)
+    compileOnly(libs.compose.compiler.gradle.plugin)
 }
 
 gradlePlugin {
@@ -16,6 +17,10 @@ gradlePlugin {
         register("androidLibrary") {
             id = "chh.android.library"
             implementationClass = "AndroidLibraryConventionPlugin"
+        }
+        register("androidCompose") {
+            id = "chh.android.compose"
+            implementationClass = "AndroidComposeConventionPlugin"
         }
     }
 }
