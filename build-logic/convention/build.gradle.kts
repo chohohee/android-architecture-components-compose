@@ -26,5 +26,9 @@ gradlePlugin {
             id = "chh.hilt.android"
             implementationClass = "HiltAndroidConventionPlugin"
         }
+        register("hiltKotlin") {
+            id = "chh.hilt.kotlin"
+            implementationClass = "HiltKotlinConventionPlugin"
+        }
     }
 }
