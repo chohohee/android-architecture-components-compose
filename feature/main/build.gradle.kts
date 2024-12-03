@@ -1,6 +1,7 @@
 plugins {
     id("chh.android.library")
     id("chh.android.compose")
+    id("chh.hilt.android")
 }
 
 android {

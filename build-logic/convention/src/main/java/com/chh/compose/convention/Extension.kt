@@ -25,6 +25,10 @@ internal fun <T> DependencyHandler.debugImplementation(
     dependencyNotation: Optional<Provider<T>>
 ): Dependency? = add("debugImplementation", dependencyNotation.get())
 
+internal fun <T> DependencyHandler.ksp(
+    dependencyNotation: Optional<Provider<T>>
+): Dependency? = add("ksp", dependencyNotation.get())
+
 internal val Project.libs
     get(): VersionCatalog = extensions.getByType<VersionCatalogsExtension>().named("libs")
 
