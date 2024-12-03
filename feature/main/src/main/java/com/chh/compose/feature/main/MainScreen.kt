@@ -10,7 +10,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.chh.compose.feature.main.ui.theme.AACComposeTheme
+import com.chh.compose.core.designsystem.theme.AACComposeTheme
 
 @Composable
 internal fun MainScreen(

@@ -17,4 +17,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "AAC-Compose"
 include(":app")
+include(":core:designsystem")
 include(":feature:main")
