@@ -48,6 +48,7 @@ androidx-paging-compose = { group = "androidx.paging", name = "paging-compose", 
 
 retrofit-kotlin-serialization = { module = "com.squareup.retrofit2:converter-kotlinx-serialization", version.ref = "retrofit" }
 okhttp-logging = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttp" }
+inject = "javax.inject:javax.inject:1"
 
 [bundles]
 androidx-compose = [
