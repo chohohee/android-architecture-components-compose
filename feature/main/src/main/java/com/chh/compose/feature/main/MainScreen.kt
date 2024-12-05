@@ -1,40 +1,31 @@
 package com.chh.compose.feature.main
 
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.chh.compose.core.designsystem.theme.AACComposeTheme
+import com.chh.compose.feature.main.component.MainBottomBar
+import com.chh.compose.feature.main.component.MainNaviHost
 
 @Composable
 internal fun MainScreen(
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    navigator: MainNavigator = rememberMainNavigator()
 ) {
     Scaffold(
-        modifier = modifier
-    ) { innerPadding ->
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(innerPadding),
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center,
-        ) {
-            Text("Main")
+        modifier = modifier,
+        bottomBar = {
+            MainBottomBar(
+                visible = navigator.shouldShowBottomBar(),
+                tabs = navigator.mainTabs,
+                currentTab = navigator.currentTab,
+                navigateToRoute = navigator::navigate
+            )
+        },
+        content = { padding ->
+            MainNaviHost(
+                navigator = navigator,
+                padding = padding
+            )
         }
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun MainScreenPreview() {
-    AACComposeTheme {
-        MainScreen()
-    }
+    )
 }
