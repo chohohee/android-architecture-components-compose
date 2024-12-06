@@ -17,11 +17,18 @@ dependencyResolutionManagement {
 
 rootProject.name = "AAC-Compose"
 include(":app")
-include(":core:data")
-include(":core:designsystem")
-include(":core:domain")
-include(":core:model")
-include(":core:navigation")
-include(":core:network")
-include(":feature:home")
-include(":feature:main")
+
+include(
+    ":core:data",
+    ":core:designsystem",
+    ":core:domain",
+    ":core:model",
+    ":core:navigation",
+    ":core:network",
+)
+
+include(
+    ":feature:home",
+    ":feature:main",
+    ":feature:pokemon-detail"
+)
