@@ -20,11 +20,13 @@ import com.chh.compose.core.model.Pokemon
 
 @Composable
 fun PokemonItem(
-    item: Pokemon
+    item: Pokemon,
+    onPokemonClick: (Pokemon) -> Unit
 ) {
     Column {
         Card(
-            shape = RoundedCornerShape(size = 8.dp)
+            shape = RoundedCornerShape(size = 8.dp),
+            onClick = { onPokemonClick(item) }
         ) {
             Column {
                 NetworkImage(
@@ -56,10 +58,11 @@ fun PokemonItem(
 private fun PokemonItemPreview() {
     AACComposeTheme {
         PokemonItem(
-            Pokemon(
+            item = Pokemon(
                 name = "bulbasaur",
                 url = "https://pokeapi.co/api/v2/pokemon/1/"
-            )
+            ),
+            onPokemonClick = {}
         )
     }
 }

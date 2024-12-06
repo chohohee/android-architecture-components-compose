@@ -9,7 +9,9 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navOptions
+import com.chh.compose.core.model.Pokemon
 import com.chh.compose.feature.home.navigation.navigateHome
+import com.chh.compose.feature.pokemon.detail.navigation.navigatePokemonDetail
 
 @Composable
 internal fun rememberMainNavigator(
@@ -58,5 +60,9 @@ internal class MainNavigator(
 
     fun navigateUp() {
         navController.navigateUp()
+    }
+
+    fun navigatePokemonDetail(pokemon: Pokemon) {
+        navController.navigatePokemonDetail(pokemon)
     }
 }

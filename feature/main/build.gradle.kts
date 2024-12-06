@@ -13,6 +13,7 @@ dependencies {
     implementation(projects.core.model)
     implementation(projects.core.navigation)
     implementation(projects.feature.home)
+    implementation(projects.feature.pokemonDetail)
 
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.navigation.compose)

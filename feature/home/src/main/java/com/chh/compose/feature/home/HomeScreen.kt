@@ -20,7 +20,8 @@ import com.chh.compose.feature.home.component.PokemonItem
 
 @Composable
 internal fun HomeScreen(
-    viewModel: HomeViewModel = hiltViewModel()
+    viewModel: HomeViewModel = hiltViewModel(),
+    onPokemonClick: (Pokemon) -> Unit
 ) {
     val items = viewModel.pagingDataFlow.collectAsLazyPagingItems()
 
@@ -34,13 +35,14 @@ internal fun HomeScreen(
             )
         }
 
-        else -> PokemonList(items)
+        else -> PokemonList(items, onPokemonClick)
     }
 }
 
 @Composable
 private fun PokemonList(
-    items: LazyPagingItems<Pokemon>
+    items: LazyPagingItems<Pokemon>,
+    onPokemonClick: (Pokemon) -> Unit
 ) {
     LazyVerticalGrid(
         columns = GridCells.Adaptive(minSize = 140.dp),
@@ -56,7 +58,10 @@ private fun PokemonList(
         items(items.itemCount) { index ->
             val item = items[index]
             item?.let {
-                PokemonItem(item)
+                PokemonItem(
+                    item,
+                    onPokemonClick
+                )
             }
         }
 
