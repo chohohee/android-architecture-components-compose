@@ -17,7 +17,7 @@ import com.chh.compose.core.designsystem.theme.AACComposeTheme
 
 @Composable
 fun ErrorView(
-    message: String,
+    message: String?,
     modifier: Modifier = Modifier,
     refresh: () -> Unit
 ) {
@@ -27,7 +27,7 @@ fun ErrorView(
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(
-            text = message,
+            text = message ?: "An error has occurred",
             modifier = Modifier.fillMaxWidth(),
             textAlign = TextAlign.Center
         )

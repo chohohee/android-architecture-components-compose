@@ -29,7 +29,7 @@ internal fun HomeScreen(
         is LoadState.Loading -> CircularProgress()
         is LoadState.Error -> {
             ErrorView(
-                message = refresh.error.message ?: "",
+                message = refresh.error.message,
                 modifier = Modifier.fillMaxSize(),
                 refresh = { items.retry() }
             )
@@ -75,7 +75,7 @@ private fun PokemonList(
             is LoadState.Error -> {
                 item(span = { GridItemSpan(maxLineSpan) }) {
                     ErrorView(
-                        message = append.error.message ?: "",
+                        message = append.error.message,
                         modifier = Modifier.fillMaxSize(),
                         refresh = { items.retry() }
                     )
