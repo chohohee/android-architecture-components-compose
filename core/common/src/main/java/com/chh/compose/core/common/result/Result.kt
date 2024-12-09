@@ -1,4 +1,4 @@
-package com.chh.compose.core.common
+package com.chh.compose.core.common.result
 
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
