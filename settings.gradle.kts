@@ -19,6 +19,7 @@ rootProject.name = "AAC-Compose"
 include(":app")
 
 include(
+    ":core:common",
     ":core:data",
     ":core:designsystem",
     ":core:domain",
