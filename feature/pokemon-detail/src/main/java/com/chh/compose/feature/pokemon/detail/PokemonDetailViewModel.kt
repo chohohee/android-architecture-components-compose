@@ -33,7 +33,7 @@ class PokemonDetailViewModel @Inject constructor(
     val detailUiState: StateFlow<UiState<PokemonInfo>> =
         getPokemonListUseCase(pokemon.name)
             .map { UiState.Success(it) }
-            .catch { UiState.Error(it.message) }
+            .catch { UiState.Error(it) }
             .stateIn(
                 scope = viewModelScope,
                 started = SharingStarted.WhileSubscribed(5_000),
