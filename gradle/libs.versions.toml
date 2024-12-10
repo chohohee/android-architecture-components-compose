@@ -59,6 +59,7 @@ inject = "javax.inject:javax.inject:1"
 landscapist-bom = { group = "com.github.skydoves", name = "landscapist-bom", version.ref = "landscapist"}
 landscapist-coil = { group = "com.github.skydoves", name = "landscapist-coil" }
 landscapist-placeholder = { group = "com.github.skydoves", name = "landscapist-placeholder" }
+landscapist-palette = { group = "com.github.skydoves", name = "landscapist-palette" }
 
 [bundles]
 androidx-compose = [
