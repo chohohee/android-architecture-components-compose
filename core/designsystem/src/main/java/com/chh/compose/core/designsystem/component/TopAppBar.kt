@@ -17,8 +17,8 @@ import com.chh.compose.core.designsystem.theme.AACComposeTheme
 @Composable
 fun TopAppBar(
     title: String,
-    modifier: Modifier = Modifier,
-    onNavigationClick: () -> Unit
+    onNavigationClick: () -> Unit,
+    modifier: Modifier = Modifier
 ) {
     CenterAlignedTopAppBar(
         title = { Text(text = title) },
