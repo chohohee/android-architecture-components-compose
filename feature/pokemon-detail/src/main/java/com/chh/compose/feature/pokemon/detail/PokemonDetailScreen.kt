@@ -19,6 +19,7 @@ import com.chh.compose.core.designsystem.component.TopAppBar
 import com.chh.compose.core.model.Pokemon
 import com.chh.compose.core.model.PokemonInfo
 import com.chh.compose.core.model.UiState
+import com.chh.compose.feature.pokemon.detail.component.PokemonDetailHeader
 
 @Composable
 internal fun PokemonDetailScreen(
@@ -66,8 +67,10 @@ internal fun PokemonDetailContent(
             onNavigationClick = onUpClick
         )
 
+        PokemonDetailHeader(pokemon)
+
         Text(
-            text = pokemonInfo.name + ", height: " + pokemonInfo.height + ", weight: " + pokemonInfo.weight,
+            text = "height: " + pokemonInfo.height + ", weight: " + pokemonInfo.weight,
             modifier = Modifier.fillMaxSize(),
             textAlign = TextAlign.Center,
             maxLines = 1,

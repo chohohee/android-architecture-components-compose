@@ -11,5 +11,5 @@ dependencies {
     implementation(libs.landscapist.bom)
     implementation(libs.landscapist.coil)
     implementation(libs.landscapist.placeholder)
-    implementation(libs.landscapist.palette)
+    api(libs.landscapist.palette)
 }
