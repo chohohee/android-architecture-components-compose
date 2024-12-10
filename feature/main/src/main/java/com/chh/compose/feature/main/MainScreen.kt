@@ -24,7 +24,8 @@ internal fun MainScreen(
         content = { padding ->
             MainNaviHost(
                 navigator = navigator,
-                padding = padding
+                padding = padding,
+                modifier = modifier
             )
         }
     )
