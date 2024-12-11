@@ -8,18 +8,23 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.text.style.TextOverflow
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.chh.compose.core.designsystem.component.CircularProgress
 import com.chh.compose.core.designsystem.component.ErrorView
 import com.chh.compose.core.designsystem.component.TopAppBar
+import com.chh.compose.core.designsystem.component.darkRgbColor
+import com.chh.compose.core.designsystem.component.lightRgbColor
 import com.chh.compose.core.model.Pokemon
 import com.chh.compose.core.model.PokemonInfo
 import com.chh.compose.core.model.UiState
 import com.chh.compose.feature.pokemon.detail.component.PokemonDetailHeader
+import com.skydoves.landscapist.components.rememberImageComponent
+import com.skydoves.landscapist.palette.PalettePlugin
+import com.skydoves.landscapist.palette.rememberPaletteState
 
 @Composable
 internal fun PokemonDetailScreen(
@@ -67,14 +72,25 @@ internal fun PokemonDetailContent(
             onNavigationClick = onUpClick
         )
 
-        PokemonDetailHeader(pokemon)
+        var palette by rememberPaletteState(null)
+        val lightRgbColor by palette.lightRgbColor()
+        val darkRgbColor by palette.darkRgbColor()
+        val component = rememberImageComponent {
+            +PalettePlugin { palette = it }
+        }
+
+        PokemonDetailHeader(
+            pokemon = pokemon,
+            backgroundColor = lightRgbColor,
+            borderColor = darkRgbColor,
+            component = component
+        )
 
         Text(
             text = "height: " + pokemonInfo.height + ", weight: " + pokemonInfo.weight,
             modifier = Modifier.fillMaxSize(),
+            color = lightRgbColor,
             textAlign = TextAlign.Center,
-            maxLines = 1,
-            overflow = TextOverflow.Ellipsis,
             style = MaterialTheme.typography.titleLarge
         )
     }

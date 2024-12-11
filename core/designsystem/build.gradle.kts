@@ -9,7 +9,7 @@ android {
 
 dependencies {
     implementation(libs.landscapist.bom)
-    implementation(libs.landscapist.coil)
     implementation(libs.landscapist.placeholder)
+    api(libs.landscapist.coil)
     api(libs.landscapist.palette)
 }
