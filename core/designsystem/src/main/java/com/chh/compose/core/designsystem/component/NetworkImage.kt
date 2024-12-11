@@ -5,8 +5,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.ColorPainter
+import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
+import com.chh.compose.core.designsystem.R
 import com.skydoves.landscapist.ImageOptions
 import com.skydoves.landscapist.coil.CoilImage
 import com.skydoves.landscapist.components.ImageComponent
@@ -20,6 +23,7 @@ fun NetworkImage(
     component: ImageComponent = rememberImageComponent {},
     contentScale: ContentScale = ContentScale.Crop,
     contentDescription: String? = null,
+    previewPainter: Painter? = null
 ) {
     CoilImage(
         imageModel = { imageUrl },
@@ -29,7 +33,8 @@ fun NetworkImage(
             contentScale = contentScale,
             alignment = Alignment.Center,
             contentDescription = contentDescription,
-        )
+        ),
+        previewPlaceholder = previewPainter
     )
 }
 
@@ -41,6 +46,7 @@ private fun NetworkImagePreview() {
         component = rememberImageComponent {
             +PlaceholderPlugin.Loading(ColorPainter(Color(0xFF000000)))
             +PlaceholderPlugin.Failure(ColorPainter(Color(0xFF000000)))
-        }
+        },
+        previewPainter = painterResource(R.drawable.preview_pokemon)
     )
 }

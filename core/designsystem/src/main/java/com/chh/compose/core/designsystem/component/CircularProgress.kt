@@ -12,12 +12,14 @@ import androidx.compose.ui.unit.dp
 import com.chh.compose.core.designsystem.theme.AACComposeTheme
 
 @Composable
-fun CircularProgress() {
+fun CircularProgress(
+    modifier: Modifier = Modifier
+) {
     Box(
-        modifier = Modifier.fillMaxSize(),
+        modifier = modifier.fillMaxSize(),
         contentAlignment = Alignment.Center
     ) {
-        CircularProgressIndicator(modifier = Modifier.size(40.dp))
+        CircularProgressIndicator(modifier = modifier.size(40.dp))
     }
 }
 
