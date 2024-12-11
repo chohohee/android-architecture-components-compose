@@ -1,4 +1,4 @@
-package com.chh.compose.core.designsystem.component
+package com.chh.compose.core.designsystem.utils
 
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
