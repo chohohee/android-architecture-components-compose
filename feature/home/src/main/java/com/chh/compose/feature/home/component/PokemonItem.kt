@@ -10,10 +10,13 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.painter.Painter
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.chh.compose.core.designsystem.R
 import com.chh.compose.core.designsystem.component.NetworkImage
 import com.chh.compose.core.designsystem.theme.AACComposeTheme
 import com.chh.compose.core.model.Pokemon
@@ -21,7 +24,8 @@ import com.chh.compose.core.model.Pokemon
 @Composable
 fun PokemonItem(
     item: Pokemon,
-    onPokemonClick: (Pokemon) -> Unit
+    onPokemonClick: (Pokemon) -> Unit,
+    previewPainter: Painter? = null
 ) {
     Column {
         Card(
@@ -35,7 +39,8 @@ fun PokemonItem(
                         .fillMaxWidth()
                         .padding(17.dp)
                         .aspectRatio(0.9f, true),
-                    contentDescription = item.name
+                    contentDescription = item.name,
+                    previewPainter = previewPainter
                 )
 
                 Text(
@@ -62,7 +67,8 @@ private fun PokemonItemPreview() {
                 name = "bulbasaur",
                 url = "https://pokeapi.co/api/v2/pokemon/1/"
             ),
-            onPokemonClick = {}
+            onPokemonClick = {},
+            previewPainter = painterResource(R.drawable.preview_pokemon)
         )
     }
 }
