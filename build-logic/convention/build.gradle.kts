@@ -14,17 +14,21 @@ gradlePlugin {
             id = "chh.android.application"
             implementationClass = "AndroidApplicationConventionPlugin"
         }
+        register("androidCompose") {
+            id = "chh.android.compose"
+            implementationClass = "AndroidComposeConventionPlugin"
+        }
         register("androidLibrary") {
             id = "chh.android.library"
             implementationClass = "AndroidLibraryConventionPlugin"
         }
+        register("androidFeature") {
+            id = "chh.android.feature"
+            implementationClass = "AndroidFeatureConventionPlugin"
+        }
         register("kotlinLibrary") {
             id = "chh.kotlin.library"
             implementationClass = "KotlinLibraryConventionPlugin"
-        }
-        register("androidCompose") {
-            id = "chh.android.compose"
-            implementationClass = "AndroidComposeConventionPlugin"
         }
         register("hiltAndroid") {
             id = "chh.hilt.android"

@@ -39,3 +39,6 @@ internal fun <T> DependencyHandler.platformImplementation(
 internal fun <T> DependencyHandler.androidTestPlatformImplementation(
     dependencyNotation: Provider<T>
 ): Dependency? = add("androidTestImplementation", dependencyNotation)
+
+internal fun DependencyHandler.projectImplementation(dependencyNotation: Any): Dependency? =
+    add("implementation", dependencyNotation)
