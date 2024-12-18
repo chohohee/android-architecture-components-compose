@@ -16,7 +16,7 @@ internal enum class MainTab(
 ) {
     HOME(
         MainTabRoute.Home,
-        "Pokedex",
+        "Home",
         Icons.Outlined.Home,
         Icons.Filled.Home
     );
