@@ -33,7 +33,7 @@ fun ErrorView(
             modifier = Modifier.fillMaxWidth(),
             textAlign = TextAlign.Center
         )
-        Spacer(modifier.height(12.dp))
+        Spacer(Modifier.height(12.dp).background(Color.Red))
         Button(onClick = refresh) {
             Text(text = "Retry")
         }
