@@ -5,5 +5,6 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class Type(
-    @SerialName(value = "name") val name: String
+    @SerialName(value = "name") val name: String,
+    @SerialName(value = "url") val url: String = ""
 )
