@@ -29,6 +29,7 @@ include(
 )
 
 include(
+    ":feature:attribute",
     ":feature:home",
     ":feature:main",
     ":feature:pokemon-detail"
