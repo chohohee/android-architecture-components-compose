@@ -15,4 +15,7 @@ sealed interface MainTabRoute : Route {
     @Serializable
     data object Home : MainTabRoute
 
+    @Serializable
+    data object Attribute : MainTabRoute
+
 }

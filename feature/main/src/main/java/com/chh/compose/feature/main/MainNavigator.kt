@@ -10,6 +10,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navOptions
 import com.chh.compose.core.model.Pokemon
+import com.chh.compose.feature.attribute.navigation.navigateAttribute
 import com.chh.compose.feature.home.navigation.navigateHome
 import com.chh.compose.feature.pokemon.detail.navigation.navigatePokemonDetail
 
@@ -55,6 +56,7 @@ internal class MainNavigator(
 
         when (tab) {
             MainTab.HOME -> navController.navigateHome(navOptions)
+            MainTab.ATTRIBUTE -> navController.navigateAttribute(navOptions)
         }
     }
 
