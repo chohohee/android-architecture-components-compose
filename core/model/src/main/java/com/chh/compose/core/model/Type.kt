@@ -7,4 +7,8 @@ import kotlinx.serialization.Serializable
 data class Type(
     @SerialName(value = "name") val name: String,
     @SerialName(value = "url") val url: String = ""
-)
+) {
+
+    fun getType(): Int = url.split("/".toRegex()).dropLast(1).last().toInt()
+
+}

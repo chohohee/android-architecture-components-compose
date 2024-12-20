@@ -11,7 +11,7 @@ class GetPokemonTypeListUseCase @Inject constructor(
 ) {
 
     operator fun invoke(): Flow<List<Type>> = flow {
-        emit(pokemonRepository.getPokemonTypeList())
+        emit(pokemonRepository.getPokemonTypeList().filter { it.getType() < 19 })
     }
 
 }
