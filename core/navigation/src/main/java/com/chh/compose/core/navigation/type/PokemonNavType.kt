@@ -7,7 +7,7 @@ import com.chh.compose.core.model.Pokemon
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 
-object PokemonType : NavType<Pokemon>(isNullableAllowed = false) {
+object PokemonNavType : NavType<Pokemon>(isNullableAllowed = false) {
     override fun get(bundle: Bundle, key: String): Pokemon? {
         return bundle.getString(key)?.let<String, Pokemon>(Json::decodeFromString)
     }

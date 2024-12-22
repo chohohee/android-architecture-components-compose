@@ -13,7 +13,7 @@ import com.chh.compose.core.model.Pokemon
 import com.chh.compose.core.model.PokemonInfo
 import com.chh.compose.core.model.UiState
 import com.chh.compose.core.navigation.Route
-import com.chh.compose.core.navigation.type.PokemonType
+import com.chh.compose.core.navigation.type.PokemonNavType
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.map
@@ -28,7 +28,7 @@ class PokemonDetailViewModel @Inject constructor(
 
     val pokemon = savedStateHandle
         .toRoute<Route.PokemonDetail>(
-            mapOf(typeOf<Pokemon>() to PokemonType)
+            mapOf(typeOf<Pokemon>() to PokemonNavType)
         ).pokemon
 
     val detailUiState: RestartableStateFlow<UiState<PokemonInfo>> =
