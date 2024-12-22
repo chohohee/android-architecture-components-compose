@@ -26,6 +26,7 @@ include(
     ":core:model",
     ":core:navigation",
     ":core:network",
+    ":core:ui"
 )
 
 include(
