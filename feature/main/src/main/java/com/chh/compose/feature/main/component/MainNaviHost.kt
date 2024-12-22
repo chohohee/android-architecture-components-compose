@@ -37,7 +37,8 @@ internal fun MainNaviHost(
         )
 
         typeDetailNavGraph(
-            onUpClick = { navigator.navigateUp() }
+            onUpClick = { navigator.navigateUp() },
+            onPokemonClick = { navigator.navigatePokemonDetail(it) }
         )
 
     }

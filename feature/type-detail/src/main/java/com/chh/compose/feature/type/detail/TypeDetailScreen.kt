@@ -23,6 +23,7 @@ import com.chh.compose.core.ui.PokemonItem
 @Composable
 internal fun TypeDetailScreen(
     onUpClick: () -> Unit,
+    onPokemonClick: (Pokemon) -> Unit,
     modifier: Modifier = Modifier,
     viewModel: TypeDetailViewModel = hiltViewModel()
 ) {
@@ -38,6 +39,7 @@ internal fun TypeDetailScreen(
                 type = viewModel.type,
                 pokemon = uiState.data,
                 onUpClick = onUpClick,
+                onPokemonClick = onPokemonClick,
                 modifier = modifier
             )
         }
@@ -57,6 +59,7 @@ internal fun TypeDetailContent(
     type: Type,
     pokemon: List<Pokemon>,
     onUpClick: () -> Unit,
+    onPokemonClick: (Pokemon) -> Unit,
     modifier: Modifier = Modifier
 ) {
     Column(
@@ -75,8 +78,8 @@ internal fun TypeDetailContent(
         ) {
             items(pokemon.size) { index ->
                 PokemonItem(
-                    pokemon[index],
-                    onPokemonClick = {}
+                    item = pokemon[index],
+                    onPokemonClick = onPokemonClick
                 )
             }
         }
