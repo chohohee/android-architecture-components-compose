@@ -22,9 +22,9 @@ internal enum class MainTab(
         Icons.Outlined.Home,
         Icons.Filled.Home
     ),
-    ATTRIBUTE(
-        MainTabRoute.Attribute,
-        "Attribute",
+    TYPE(
+        MainTabRoute.Type,
+        "Type",
         Icons.Outlined.Info,
         Icons.Filled.Info
     );

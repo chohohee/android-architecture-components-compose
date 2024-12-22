@@ -29,9 +29,9 @@ include(
 )
 
 include(
-    ":feature:attribute",
-    ":feature:attribute-detail",
     ":feature:main",
     ":feature:pokemon",
-    ":feature:pokemon-detail"
+    ":feature:pokemon-detail",
+    ":feature:type",
+    ":feature:type-detail"
 )

@@ -7,7 +7,8 @@ android {
 }
 
 dependencies {
-    implementation(projects.feature.attribute)
     implementation(projects.feature.pokemon)
     implementation(projects.feature.pokemonDetail)
+    implementation(projects.feature.type)
+    implementation(projects.feature.typeDetail)
 }

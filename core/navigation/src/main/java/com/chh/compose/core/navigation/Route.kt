@@ -16,6 +16,6 @@ sealed interface MainTabRoute : Route {
     data object Pokemon : MainTabRoute
 
     @Serializable
-    data object Attribute : MainTabRoute
+    data object Type : MainTabRoute
 
 }

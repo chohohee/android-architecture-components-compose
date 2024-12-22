@@ -6,7 +6,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.navigation.compose.NavHost
-import com.chh.compose.feature.attribute.navigation.attributeNavGraph
+import com.chh.compose.feature.type.navigation.typeNavGraph
 import com.chh.compose.feature.pokemon.navigation.pokemonNavGraph
 import com.chh.compose.feature.main.MainNavigator
 import com.chh.compose.feature.pokemon.detail.navigation.pokemonDetailNavGraph
@@ -27,7 +27,7 @@ internal fun MainNaviHost(
             onPokemonClick = { navigator.navigatePokemonDetail(it) }
         )
 
-        attributeNavGraph()
+        typeNavGraph()
 
         pokemonDetailNavGraph(
             onUpClick = { navigator.navigateUp() }
