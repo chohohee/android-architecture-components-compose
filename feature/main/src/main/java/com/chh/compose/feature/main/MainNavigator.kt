@@ -10,9 +10,11 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navOptions
 import com.chh.compose.core.model.Pokemon
+import com.chh.compose.core.model.Type
 import com.chh.compose.feature.type.navigation.navigateType
 import com.chh.compose.feature.pokemon.detail.navigation.navigatePokemonDetail
 import com.chh.compose.feature.pokemon.navigation.navigatePokemon
+import com.chh.compose.feature.type.detail.navigation.navigateTypeDetail
 
 @Composable
 internal fun rememberMainNavigator(
@@ -66,5 +68,9 @@ internal class MainNavigator(
 
     fun navigatePokemonDetail(pokemon: Pokemon) {
         navController.navigatePokemonDetail(pokemon)
+    }
+
+    fun navigateTypeDetail(type: Type) {
+        navController.navigateTypeDetail(type)
     }
 }

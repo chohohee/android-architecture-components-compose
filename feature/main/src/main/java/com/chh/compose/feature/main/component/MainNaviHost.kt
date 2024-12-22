@@ -10,6 +10,7 @@ import com.chh.compose.feature.type.navigation.typeNavGraph
 import com.chh.compose.feature.pokemon.navigation.pokemonNavGraph
 import com.chh.compose.feature.main.MainNavigator
 import com.chh.compose.feature.pokemon.detail.navigation.pokemonDetailNavGraph
+import com.chh.compose.feature.type.detail.navigation.typeDetailNavGraph
 
 @Composable
 internal fun MainNaviHost(
@@ -27,9 +28,15 @@ internal fun MainNaviHost(
             onPokemonClick = { navigator.navigatePokemonDetail(it) }
         )
 
-        typeNavGraph()
+        typeNavGraph(
+            onTypeClick = { navigator.navigateTypeDetail(it) }
+        )
 
         pokemonDetailNavGraph(
+            onUpClick = { navigator.navigateUp() }
+        )
+
+        typeDetailNavGraph(
             onUpClick = { navigator.navigateUp() }
         )
 

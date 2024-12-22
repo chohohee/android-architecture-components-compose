@@ -5,6 +5,7 @@ import androidx.compose.animation.core.LinearEasing
 import androidx.compose.animation.core.infiniteRepeatable
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.offset
@@ -38,6 +39,7 @@ import kotlin.math.sin
 
 @Composable
 internal fun TypeScreen(
+    onTypeClick: (Type) -> Unit,
     viewModel: TypeViewModel = hiltViewModel()
 ) {
     val typeUiState by viewModel.typeUiState.collectAsStateWithLifecycle()
@@ -48,7 +50,10 @@ internal fun TypeScreen(
         }
 
         is UiState.Success -> {
-            TypeContent(uiState.data)
+            TypeContent(
+                items = uiState.data,
+                onTypeClick = onTypeClick
+            )
         }
 
         is UiState.Error -> {
@@ -63,7 +68,8 @@ internal fun TypeScreen(
 
 @Composable
 internal fun TypeContent(
-    items: List<Type>
+    items: List<Type>,
+    onTypeClick: (Type) -> Unit
 ) {
     val rotation = remember { Animatable(0f) }
 
@@ -98,7 +104,8 @@ internal fun TypeContent(
                     .offset(x = xOffset, y = yOffset)
                     .clip(CircleShape)
                     .background(getPokemonColor(type.name))
-                    .align(Alignment.Center),
+                    .align(Alignment.Center)
+                    .clickable { onTypeClick(type) },
                 contentDescription = type.name,
                 tint = Color.DarkGray
             )
@@ -120,7 +127,8 @@ private fun TypeContentPreview() {
     )
     AACComposeTheme {
         TypeContent(
-            items = list + list + list
+            items = list + list + list,
+            onTypeClick = {}
         )
     }
 }
