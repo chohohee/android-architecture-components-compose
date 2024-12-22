@@ -7,6 +7,7 @@ import com.chh.compose.core.data.paging.PokemonPagingSource
 import com.chh.compose.core.model.Pokemon
 import com.chh.compose.core.model.PokemonInfo
 import com.chh.compose.core.model.Type
+import com.chh.compose.core.model.TypePokemon
 import com.chh.compose.core.network.source.PokemonNetworkDataSource
 import com.chh.compose.core.network.utils.Result
 import kotlinx.coroutines.flow.Flow
@@ -31,6 +32,13 @@ internal class DefaultPokemonRepository @Inject constructor(
     override suspend fun getPokemonTypeList(): List<Type> {
         return when (val result = networkDataSource.fetchPokemonTypeList()) {
             is Result.Success -> result.data.results
+            is Result.Error -> error(result.error)
+        }
+    }
+
+    override suspend fun getPokemonType(url: String): List<TypePokemon> {
+        return when (val result = networkDataSource.fetchPokemonType(url)) {
+            is Result.Success -> result.data.pokemon
             is Result.Error -> error(result.error)
         }
     }

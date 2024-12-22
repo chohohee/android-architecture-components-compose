@@ -3,6 +3,7 @@ package com.chh.compose.core.network.api
 import com.chh.compose.core.model.PokemonInfo
 import com.chh.compose.core.network.model.PokemonPagedResponse
 import com.chh.compose.core.network.model.PokemonTypeResponse
+import com.chh.compose.core.network.model.PokemonTypesResponse
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Url
@@ -20,6 +21,11 @@ interface PokemonApi {
     ): PokemonInfo
 
     @GET("type")
-    suspend fun fetchPokemonTypeList(): PokemonTypeResponse
+    suspend fun fetchPokemonTypeList(): PokemonTypesResponse
+
+    @GET
+    suspend fun fetchPokemonType(
+        @Url url: String
+    ): PokemonTypeResponse
 
 }
