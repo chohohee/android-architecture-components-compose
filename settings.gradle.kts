@@ -30,7 +30,7 @@ include(
 
 include(
     ":feature:attribute",
-    ":feature:home",
     ":feature:main",
+    ":feature:pokemon",
     ":feature:pokemon-detail"
 )

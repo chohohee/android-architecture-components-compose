@@ -61,7 +61,7 @@ private fun MainBottomBarPreview() {
         MainBottomBar(
             true,
             tabs = MainTab.entries.toTypedArray(),
-            currentTab = MainTab.HOME,
+            currentTab = MainTab.POKEMON,
             navigateToRoute = {}
         )
     }

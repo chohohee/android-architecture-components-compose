@@ -7,7 +7,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.navigation.compose.NavHost
 import com.chh.compose.feature.attribute.navigation.attributeNavGraph
-import com.chh.compose.feature.home.navigation.homeNavGraph
+import com.chh.compose.feature.pokemon.navigation.pokemonNavGraph
 import com.chh.compose.feature.main.MainNavigator
 import com.chh.compose.feature.pokemon.detail.navigation.pokemonDetailNavGraph
 
@@ -23,7 +23,7 @@ internal fun MainNaviHost(
         modifier = modifier.background(color = Color.White)
     ) {
 
-        homeNavGraph(
+        pokemonNavGraph(
             onPokemonClick = { navigator.navigatePokemonDetail(it) }
         )
 

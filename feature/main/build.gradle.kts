@@ -8,6 +8,6 @@ android {
 
 dependencies {
     implementation(projects.feature.attribute)
-    implementation(projects.feature.home)
+    implementation(projects.feature.pokemon)
     implementation(projects.feature.pokemonDetail)
 }

@@ -11,8 +11,8 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navOptions
 import com.chh.compose.core.model.Pokemon
 import com.chh.compose.feature.attribute.navigation.navigateAttribute
-import com.chh.compose.feature.home.navigation.navigateHome
 import com.chh.compose.feature.pokemon.detail.navigation.navigatePokemonDetail
+import com.chh.compose.feature.pokemon.navigation.navigatePokemon
 
 @Composable
 internal fun rememberMainNavigator(
@@ -26,7 +26,7 @@ internal class MainNavigator(
 ) {
 
     val mainTabs = MainTab.entries.toTypedArray()
-    val startDestination = MainTab.HOME.route
+    val startDestination = MainTab.POKEMON.route
 
     private val currentDestination: NavDestination?
         @Composable get() =
@@ -55,7 +55,7 @@ internal class MainNavigator(
         }
 
         when (tab) {
-            MainTab.HOME -> navController.navigateHome(navOptions)
+            MainTab.POKEMON -> navController.navigatePokemon(navOptions)
             MainTab.ATTRIBUTE -> navController.navigateAttribute(navOptions)
         }
     }

@@ -13,7 +13,7 @@ sealed interface Route {
 sealed interface MainTabRoute : Route {
 
     @Serializable
-    data object Home : MainTabRoute
+    data object Pokemon : MainTabRoute
 
     @Serializable
     data object Attribute : MainTabRoute

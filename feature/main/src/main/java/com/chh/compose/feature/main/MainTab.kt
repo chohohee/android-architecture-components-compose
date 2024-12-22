@@ -16,9 +16,9 @@ internal enum class MainTab(
     val unselectedIcon: ImageVector,
     val selectedIcon: ImageVector,
 ) {
-    HOME(
-        MainTabRoute.Home,
-        "Home",
+    POKEMON(
+        MainTabRoute.Pokemon,
+        "Pokemon",
         Icons.Outlined.Home,
         Icons.Filled.Home
     ),
