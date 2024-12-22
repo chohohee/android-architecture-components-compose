@@ -16,7 +16,7 @@ import androidx.paging.compose.collectAsLazyPagingItems
 import com.chh.compose.core.designsystem.component.CircularProgress
 import com.chh.compose.core.designsystem.component.ErrorView
 import com.chh.compose.core.model.Pokemon
-import com.chh.compose.feature.pokemon.component.PokemonItem
+import com.chh.compose.core.ui.PokemonItem
 
 @Composable
 internal fun PokemonScreen(

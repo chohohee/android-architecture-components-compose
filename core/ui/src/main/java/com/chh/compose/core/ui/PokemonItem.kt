@@ -1,4 +1,4 @@
-package com.chh.compose.feature.pokemon.component
+package com.chh.compose.core.ui
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.aspectRatio
