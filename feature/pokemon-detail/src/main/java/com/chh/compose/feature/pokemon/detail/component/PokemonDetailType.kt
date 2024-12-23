@@ -15,12 +15,14 @@ import com.chh.compose.core.model.Type
 @Composable
 fun PokemonDetailType(
     pokemonInfo: PokemonInfo,
+    onTypeClick: (Type) -> Unit,
     modifier: Modifier = Modifier
 ) {
     pokemonInfo.types.forEachIndexed { index, item ->
         PokemonTypeCard(
             index = index,
-            type = item.type.name,
+            type = item.type,
+            onTypeClick = onTypeClick,
             modifier = modifier
         )
     }
@@ -45,7 +47,8 @@ private fun PokemonDetailTypePreview() {
                     height = 7,
                     weight = 69,
                     types = listOf(TypeResponse(Type("grass")))
-                )
+                ),
+                onTypeClick = {}
             )
         }
     }

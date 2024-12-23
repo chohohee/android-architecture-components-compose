@@ -17,6 +17,7 @@ import com.chh.compose.core.designsystem.utils.darkRgbColor
 import com.chh.compose.core.designsystem.utils.lightRgbColor
 import com.chh.compose.core.model.Pokemon
 import com.chh.compose.core.model.PokemonInfo
+import com.chh.compose.core.model.Type
 import com.chh.compose.core.model.UiState
 import com.chh.compose.feature.pokemon.detail.component.PokemonDetailHeader
 import com.chh.compose.feature.pokemon.detail.component.PokemonDetailInfo
@@ -28,6 +29,7 @@ import com.skydoves.landscapist.palette.rememberPaletteState
 @Composable
 internal fun PokemonDetailScreen(
     onUpClick: () -> Unit,
+    onTypeClick: (Type) -> Unit,
     modifier: Modifier = Modifier,
     viewModel: PokemonDetailViewModel = hiltViewModel()
 ) {
@@ -43,6 +45,7 @@ internal fun PokemonDetailScreen(
                 pokemon = viewModel.pokemon,
                 pokemonInfo = uiState.data,
                 onUpClick = onUpClick,
+                onTypeClick = onTypeClick,
                 modifier = modifier
             )
         }
@@ -62,6 +65,7 @@ internal fun PokemonDetailContent(
     pokemon: Pokemon,
     pokemonInfo: PokemonInfo,
     onUpClick: () -> Unit,
+    onTypeClick: (Type) -> Unit,
     modifier: Modifier = Modifier
 ) {
     Column(
@@ -88,7 +92,10 @@ internal fun PokemonDetailContent(
             component = component
         )
 
-        PokemonDetailType(pokemonInfo)
+        PokemonDetailType(
+            pokemonInfo = pokemonInfo,
+            onTypeClick = onTypeClick
+        )
 
         PokemonDetailInfo(
             pokemonInfo = pokemonInfo,

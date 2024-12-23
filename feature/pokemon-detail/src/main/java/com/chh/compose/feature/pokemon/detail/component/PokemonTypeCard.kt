@@ -1,6 +1,7 @@
 package com.chh.compose.feature.pokemon.detail.component
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
@@ -24,11 +25,13 @@ import androidx.compose.ui.unit.dp
 import com.chh.compose.core.designsystem.theme.AACComposeTheme
 import com.chh.compose.core.designsystem.utils.getPokemonColor
 import com.chh.compose.core.designsystem.utils.getPokemonPainter
+import com.chh.compose.core.model.Type
 
 @Composable
 fun PokemonTypeCard(
     index: Int,
-    type: String,
+    type: Type,
+    onTypeClick: (Type) -> Unit,
     modifier: Modifier = Modifier
 ) {
     Row(
@@ -36,7 +39,8 @@ fun PokemonTypeCard(
             .padding(top = 5.dp, bottom = 5.dp)
             .fillMaxSize()
             .height(80.dp)
-            .background(color = getPokemonColor(type)),
+            .background(color = getPokemonColor(type.name))
+            .clickable { onTypeClick(type) },
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically
     ) {
@@ -45,20 +49,20 @@ fun PokemonTypeCard(
             contentAlignment = Alignment.Center
         ) {
             Icon(
-                painter = getPokemonPainter(type),
-                contentDescription = type,
+                painter = getPokemonPainter(type.name),
+                contentDescription = type.name,
                 modifier = modifier
                     .size(40.dp)
                     .clip(CircleShape)
                     .background(Color.White),
-                tint = getPokemonColor(type)
+                tint = getPokemonColor(type.name)
             )
         }
 
         CardDivider(index)
 
         Text(
-            text = type.uppercase(),
+            text = type.name.uppercase(),
             modifier = modifier.weight(1f),
             color = Color.White,
             fontStyle = FontStyle.Italic,
@@ -77,7 +81,8 @@ private fun PokemonTypeCardPreview() {
     AACComposeTheme {
         PokemonTypeCard(
             index = 0,
-            type = "grass",
+            type = Type("grass"),
+            onTypeClick = {}
         )
     }
 }
