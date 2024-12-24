@@ -15,10 +15,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import coil.ImageLoader
 import coil.decode.GifDecoder
@@ -31,6 +31,8 @@ import com.chh.compose.core.model.Pokemon
 import com.skydoves.landscapist.coil.CoilImage
 import com.skydoves.landscapist.components.ImageComponent
 import com.skydoves.landscapist.components.rememberImageComponent
+import kotlin.math.cos
+import kotlin.math.sin
 
 @Composable
 fun PokemonDetailHeader(
@@ -41,6 +43,14 @@ fun PokemonDetailHeader(
     component: ImageComponent = rememberImageComponent {},
     previewPainter: Painter? = null
 ) {
+    val screenWidthDp = LocalConfiguration.current.screenWidthDp.dp
+    val circleWidth = screenWidthDp / 1.5f
+    val radius = circleWidth / 2
+
+    val angle = 45f
+    val xOffset = radius * cos(Math.toRadians(angle.toDouble())).toFloat()
+    val yOffset = radius * sin(Math.toRadians(angle.toDouble())).toFloat()
+
     Box(
         modifier = modifier.fillMaxSize(),
         contentAlignment = Alignment.Center
@@ -49,7 +59,7 @@ fun PokemonDetailHeader(
             imageUrl = pokemon.getImageUrl(),
             modifier = modifier
                 .padding(25.dp)
-                .size(250.dp)
+                .size(circleWidth)
                 .clip(CircleShape)
                 .background(backgroundColor)
                 .border(
@@ -75,13 +85,8 @@ fun PokemonDetailHeader(
 
         Box(
             modifier = modifier
-                .offset {
-                    IntOffset(
-                        (250.dp.toPx() / density).toInt(),
-                        (250.dp.toPx() / density).toInt()
-                    )
-                }
-                .size(83.dp)
+                .offset(x = xOffset, y = yOffset)
+                .size(circleWidth / 4)
                 .clip(CircleShape)
                 .background(backgroundColor)
                 .border(
