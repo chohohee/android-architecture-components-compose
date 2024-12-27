@@ -14,6 +14,7 @@ import com.chh.compose.core.model.Type
 import com.chh.compose.feature.type.navigation.navigateType
 import com.chh.compose.feature.pokemon.detail.navigation.navigatePokemonDetail
 import com.chh.compose.feature.pokemon.navigation.navigatePokemon
+import com.chh.compose.feature.setting.navigation.navigateSetting
 import com.chh.compose.feature.type.detail.navigation.navigateTypeDetail
 
 @Composable
@@ -59,6 +60,7 @@ internal class MainNavigator(
         when (tab) {
             MainTab.POKEMON -> navController.navigatePokemon(navOptions)
             MainTab.TYPE -> navController.navigateType(navOptions)
+            MainTab.SETTING -> navController.navigateSetting(navOptions)
         }
     }
 

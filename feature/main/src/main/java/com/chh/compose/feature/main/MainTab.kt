@@ -3,8 +3,10 @@ package com.chh.compose.feature.main
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Info
+import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.outlined.Home
 import androidx.compose.material.icons.outlined.Info
+import androidx.compose.material.icons.outlined.Settings
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.vector.ImageVector
 import com.chh.compose.core.navigation.MainTabRoute
@@ -27,6 +29,12 @@ internal enum class MainTab(
         "Type",
         Icons.Outlined.Info,
         Icons.Filled.Info
+    ),
+    SETTING(
+        MainTabRoute.Setting,
+        "Setting",
+        Icons.Outlined.Settings,
+        Icons.Filled.Settings
     );
 
     companion object {
