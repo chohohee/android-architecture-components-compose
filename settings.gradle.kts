@@ -33,6 +33,7 @@ include(
     ":feature:main",
     ":feature:pokemon",
     ":feature:pokemon-detail",
+    ":feature:setting",
     ":feature:type",
     ":feature:type-detail"
 )
