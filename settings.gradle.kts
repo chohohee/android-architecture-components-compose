@@ -21,6 +21,7 @@ include(":app")
 include(
     ":core:common",
     ":core:data",
+    ":core:datastore",
     ":core:designsystem",
     ":core:domain",
     ":core:model",
