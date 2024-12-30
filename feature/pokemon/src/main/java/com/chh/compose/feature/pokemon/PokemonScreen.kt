@@ -8,15 +8,22 @@ import androidx.compose.foundation.lazy.grid.GridItemSpan
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.painter.Painter
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.paging.LoadState
+import androidx.paging.PagingData
 import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.collectAsLazyPagingItems
+import com.chh.compose.core.designsystem.R
 import com.chh.compose.core.designsystem.component.CircularProgress
 import com.chh.compose.core.designsystem.component.ErrorView
+import com.chh.compose.core.designsystem.component.ThemePreviews
+import com.chh.compose.core.designsystem.theme.AACComposeTheme
 import com.chh.compose.core.model.Pokemon
 import com.chh.compose.core.ui.PokemonItem
+import kotlinx.coroutines.flow.flowOf
 
 @Composable
 internal fun PokemonScreen(
@@ -42,7 +49,8 @@ internal fun PokemonScreen(
 @Composable
 private fun PokemonList(
     items: LazyPagingItems<Pokemon>,
-    onPokemonClick: (Pokemon) -> Unit
+    onPokemonClick: (Pokemon) -> Unit,
+    previewPainter: Painter? = null
 ) {
     LazyVerticalGrid(
         columns = GridCells.Adaptive(minSize = 140.dp),
@@ -60,7 +68,8 @@ private fun PokemonList(
             item?.let {
                 PokemonItem(
                     item,
-                    onPokemonClick
+                    onPokemonClick,
+                    previewPainter
                 )
             }
         }
@@ -84,5 +93,21 @@ private fun PokemonList(
 
             else -> Unit
         }
+    }
+}
+
+@ThemePreviews
+@Composable
+private fun PokemonListPreview() {
+    val item = Pokemon(
+        name = "bulbasaur",
+        url = "https://pokeapi.co/api/v2/pokemon/1/"
+    )
+    AACComposeTheme {
+        PokemonList(
+            items = flowOf(PagingData.from(listOf(item, item))).collectAsLazyPagingItems(),
+            onPokemonClick = {},
+            previewPainter = painterResource(R.drawable.preview_pokemon)
+        )
     }
 }

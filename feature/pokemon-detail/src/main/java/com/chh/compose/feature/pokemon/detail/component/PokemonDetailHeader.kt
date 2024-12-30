@@ -18,13 +18,14 @@ import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.ImageLoader
 import coil.decode.GifDecoder
 import coil.decode.ImageDecoderDecoder
 import com.chh.compose.core.designsystem.R
+import com.chh.compose.core.designsystem.component.ComposeBackground
 import com.chh.compose.core.designsystem.component.NetworkImage
+import com.chh.compose.core.designsystem.component.ThemePreviews
 import com.chh.compose.core.designsystem.theme.AACComposeTheme
 import com.chh.compose.core.designsystem.theme.PokemonMaterialTheme
 import com.chh.compose.core.model.Pokemon
@@ -106,18 +107,20 @@ fun PokemonDetailHeader(
     }
 }
 
-@Preview
+@ThemePreviews
 @Composable
 private fun PokemonDetailHeaderPreview() {
     AACComposeTheme {
-        PokemonDetailHeader(
-            pokemon = Pokemon(
-                name = "bulbasaur",
-                url = "https://pokeapi.co/api/v2/pokemon/1/"
-            ),
-            backgroundColor = PokemonMaterialTheme.colorScheme.fire,
-            borderColor = PokemonMaterialTheme.colorScheme.electric,
-            previewPainter = painterResource(R.drawable.preview_pokemon)
-        )
+        ComposeBackground {
+            PokemonDetailHeader(
+                pokemon = Pokemon(
+                    name = "bulbasaur",
+                    url = "https://pokeapi.co/api/v2/pokemon/1/"
+                ),
+                backgroundColor = PokemonMaterialTheme.colorScheme.fire,
+                borderColor = PokemonMaterialTheme.colorScheme.electric,
+                previewPainter = painterResource(R.drawable.preview_pokemon)
+            )
+        }
     }
 }

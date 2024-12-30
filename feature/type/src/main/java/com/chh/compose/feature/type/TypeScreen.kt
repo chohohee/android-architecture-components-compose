@@ -22,13 +22,14 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalConfiguration
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.chh.compose.core.designsystem.component.CircularProgress
+import com.chh.compose.core.designsystem.component.ComposeBackground
 import com.chh.compose.core.designsystem.component.ErrorView
+import com.chh.compose.core.designsystem.component.ThemePreviews
 import com.chh.compose.core.designsystem.theme.AACComposeTheme
 import com.chh.compose.core.designsystem.utils.getPokemonColor
 import com.chh.compose.core.designsystem.utils.getPokemonPainter
@@ -113,8 +114,7 @@ internal fun TypeContent(
     }
 }
 
-
-@Preview
+@ThemePreviews
 @Composable
 private fun TypeContentPreview() {
     val list = listOf(
@@ -126,9 +126,11 @@ private fun TypeContentPreview() {
         Type("rock", "https://pokeapi.co/api/v2/type/6/")
     )
     AACComposeTheme {
-        TypeContent(
-            items = list + list + list,
-            onTypeClick = {}
-        )
+        ComposeBackground {
+            TypeContent(
+                items = list + list + list,
+                onTypeClick = {}
+            )
+        }
     }
 }

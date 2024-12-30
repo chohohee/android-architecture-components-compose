@@ -6,8 +6,8 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.chh.compose.core.designsystem.component.ThemePreviews
 import com.chh.compose.core.designsystem.theme.AACComposeTheme
 
 @Composable
@@ -31,7 +31,7 @@ fun CardDivider(
     }
 }
 
-@Preview
+@ThemePreviews
 @Composable
 private fun CardDividerPreview() {
     AACComposeTheme {

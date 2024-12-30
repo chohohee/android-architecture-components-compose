@@ -1,6 +1,5 @@
 package com.chh.compose.feature.setting.component
 
-import android.content.res.Configuration
 import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
@@ -27,11 +26,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import com.chh.compose.core.designsystem.R
+import com.chh.compose.core.designsystem.component.ComposeBackground
+import com.chh.compose.core.designsystem.component.ThemePreviews
 import com.chh.compose.core.designsystem.theme.AACComposeTheme
 import com.chh.compose.core.designsystem.theme.LocalDarkTheme
 
@@ -111,15 +111,15 @@ fun ThemeSwitch(
     }
 }
 
-
-@Preview(uiMode = Configuration.UI_MODE_NIGHT_NO, name = "Light theme")
-@Preview(uiMode = Configuration.UI_MODE_NIGHT_YES, name = "Dark theme")
+@ThemePreviews
 @Composable
 private fun ThemeSwitchPreview() {
     AACComposeTheme {
-        ThemeSwitch(
-            darkTheme = LocalDarkTheme.current,
-            onThemeUpdated = {}
-        )
+        ComposeBackground {
+            ThemeSwitch(
+                darkTheme = LocalDarkTheme.current,
+                onThemeUpdated = {}
+            )
+        }
     }
 }

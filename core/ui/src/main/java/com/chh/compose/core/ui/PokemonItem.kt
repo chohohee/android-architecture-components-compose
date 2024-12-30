@@ -14,10 +14,10 @@ import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.chh.compose.core.designsystem.R
 import com.chh.compose.core.designsystem.component.NetworkImage
+import com.chh.compose.core.designsystem.component.ThemePreviews
 import com.chh.compose.core.designsystem.theme.AACComposeTheme
 import com.chh.compose.core.model.Pokemon
 
@@ -58,7 +58,7 @@ fun PokemonItem(
     }
 }
 
-@Preview
+@ThemePreviews
 @Composable
 private fun PokemonItemPreview() {
     AACComposeTheme {

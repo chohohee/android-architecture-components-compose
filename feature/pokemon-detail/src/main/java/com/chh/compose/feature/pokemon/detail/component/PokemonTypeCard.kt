@@ -20,8 +20,9 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.chh.compose.core.designsystem.component.ComposeBackground
+import com.chh.compose.core.designsystem.component.ThemePreviews
 import com.chh.compose.core.designsystem.theme.AACComposeTheme
 import com.chh.compose.core.designsystem.utils.getPokemonColor
 import com.chh.compose.core.designsystem.utils.getPokemonPainter
@@ -72,17 +73,18 @@ fun PokemonTypeCard(
     }
 }
 
-@Preview(
-    widthDp = 400,
-    heightDp = 80
-)
+@ThemePreviews
 @Composable
 private fun PokemonTypeCardPreview() {
     AACComposeTheme {
-        PokemonTypeCard(
-            index = 0,
-            type = Type("grass"),
-            onTypeClick = {}
-        )
+        ComposeBackground(
+            modifier = Modifier.size(width = 400.dp, height = 80.dp)
+        ) {
+            PokemonTypeCard(
+                index = 0,
+                type = Type("grass"),
+                onTypeClick = {}
+            )
+        }
     }
 }
