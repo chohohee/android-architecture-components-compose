@@ -8,6 +8,7 @@ import com.chh.compose.feature.main.component.MainNaviHost
 
 @Composable
 internal fun MainScreen(
+    onThemeUpdated: (Boolean) -> Unit,
     modifier: Modifier = Modifier,
     navigator: MainNavigator = rememberMainNavigator()
 ) {
@@ -25,6 +26,7 @@ internal fun MainScreen(
             MainNaviHost(
                 navigator = navigator,
                 padding = padding,
+                onThemeUpdated = onThemeUpdated,
                 modifier = modifier
             )
         }

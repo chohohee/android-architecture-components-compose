@@ -11,8 +11,10 @@ fun NavController.navigateSetting(navOptions: NavOptions) {
     navigate(MainTabRoute.Setting, navOptions)
 }
 
-fun NavGraphBuilder.settingNavGraph() {
+fun NavGraphBuilder.settingNavGraph(onThemeUpdated: (Boolean) -> Unit) {
     composable<MainTabRoute.Setting> {
-        SettingScreen()
+        SettingScreen(
+            onThemeUpdated = onThemeUpdated
+        )
     }
 }

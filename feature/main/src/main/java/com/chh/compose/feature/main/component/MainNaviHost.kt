@@ -17,6 +17,7 @@ import com.chh.compose.feature.type.detail.navigation.typeDetailNavGraph
 internal fun MainNaviHost(
     navigator: MainNavigator,
     padding: PaddingValues,
+    onThemeUpdated: (Boolean) -> Unit,
     modifier: Modifier = Modifier
 ) {
     NavHost(
@@ -33,7 +34,9 @@ internal fun MainNaviHost(
             onTypeClick = { navigator.navigateTypeDetail(it) }
         )
 
-        settingNavGraph()
+        settingNavGraph(
+            onThemeUpdated = onThemeUpdated
+        )
 
         pokemonDetailNavGraph(
             onUpClick = { navigator.navigateUp() },
