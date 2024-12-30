@@ -23,8 +23,8 @@ internal fun MainBottomBar(
     visible: Boolean,
     tabs: Array<MainTab>,
     currentTab: MainTab?,
-    modifier: Modifier = Modifier,
-    navigateToRoute: (MainTab) -> Unit
+    navigateToRoute: (MainTab) -> Unit,
+    modifier: Modifier = Modifier
 ) {
     AnimatedVisibility(
         visible = visible,
@@ -45,9 +45,7 @@ internal fun MainBottomBar(
                             contentDescription = tab.title
                         )
                     },
-                    label = {
-                        Text(tab.title)
-                    }
+                    label = { Text(tab.title) }
                 )
             }
         }
@@ -59,7 +57,7 @@ internal fun MainBottomBar(
 private fun MainBottomBarPreview() {
     AACComposeTheme {
         MainBottomBar(
-            true,
+            visible = true,
             tabs = MainTab.entries.toTypedArray(),
             currentTab = MainTab.POKEMON,
             navigateToRoute = {}

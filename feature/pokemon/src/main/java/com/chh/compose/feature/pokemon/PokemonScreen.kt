@@ -27,8 +27,8 @@ import kotlinx.coroutines.flow.flowOf
 
 @Composable
 internal fun PokemonScreen(
-    viewModel: PokemonViewModel = hiltViewModel(),
-    onPokemonClick: (Pokemon) -> Unit
+    onPokemonClick: (Pokemon) -> Unit,
+    viewModel: PokemonViewModel = hiltViewModel()
 ) {
     val items = viewModel.pagingDataFlow.collectAsLazyPagingItems()
 
@@ -37,12 +37,15 @@ internal fun PokemonScreen(
         is LoadState.Error -> {
             ErrorView(
                 message = refresh.error.message,
-                modifier = Modifier.fillMaxSize(),
-                refresh = { items.retry() }
+                refresh = { items.retry() },
+                modifier = Modifier.fillMaxSize()
             )
         }
 
-        else -> PokemonList(items, onPokemonClick)
+        else -> PokemonList(
+            items = items,
+            onPokemonClick = onPokemonClick
+        )
     }
 }
 
@@ -67,9 +70,9 @@ private fun PokemonList(
             val item = items[index]
             item?.let {
                 PokemonItem(
-                    item,
-                    onPokemonClick,
-                    previewPainter
+                    item = item,
+                    onPokemonClick = onPokemonClick,
+                    previewPainter = previewPainter
                 )
             }
         }
@@ -85,8 +88,8 @@ private fun PokemonList(
                 item(span = { GridItemSpan(maxLineSpan) }) {
                     ErrorView(
                         message = append.error.message,
-                        modifier = Modifier.fillMaxSize(),
-                        refresh = { items.retry() }
+                        refresh = { items.retry() },
+                        modifier = Modifier.fillMaxSize()
                     )
                 }
             }

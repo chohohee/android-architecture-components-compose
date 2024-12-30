@@ -25,6 +25,5 @@ object DataStoreModule {
     @Named("theme")
     fun provideThemeDataStore(
         @ApplicationContext context: Context,
-    ): DataStore<Preferences> =
-        context.themeDataStore
+    ): DataStore<Preferences> = context.themeDataStore
 }

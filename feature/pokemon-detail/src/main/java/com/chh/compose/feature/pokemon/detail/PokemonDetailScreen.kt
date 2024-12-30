@@ -53,8 +53,8 @@ internal fun PokemonDetailScreen(
         is UiState.Error -> {
             ErrorView(
                 message = uiState.exception.message,
-                modifier = Modifier.fillMaxSize(),
-                refresh = viewModel.detailUiState::restart
+                refresh = viewModel.detailUiState::restart,
+                modifier = Modifier.fillMaxSize()
             )
         }
     }

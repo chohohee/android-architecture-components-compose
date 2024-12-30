@@ -24,7 +24,6 @@ import com.chh.compose.core.model.Pokemon
 import com.chh.compose.core.model.Type
 import com.chh.compose.core.model.UiState
 import com.chh.compose.core.ui.PokemonItem
-import kotlinx.coroutines.flow.flowOf
 
 @Composable
 internal fun TypeDetailScreen(
@@ -53,8 +52,8 @@ internal fun TypeDetailScreen(
         is UiState.Error -> {
             ErrorView(
                 message = uiState.exception.message,
-                modifier = Modifier.fillMaxSize(),
-                refresh = viewModel.detailUiState::restart
+                refresh = viewModel.detailUiState::restart,
+                modifier = Modifier.fillMaxSize()
             )
         }
     }

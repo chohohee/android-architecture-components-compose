@@ -61,7 +61,9 @@ fun ThemeSwitch(
             color = MaterialTheme.colorScheme.secondary,
             style = MaterialTheme.typography.displaySmall
         )
+
         Spacer(modifier = Modifier.height(80.dp))
+
         Box(
             modifier = Modifier
                 .width(toggleSize * 2)
@@ -80,6 +82,7 @@ fun ThemeSwitch(
                     .clip(CircleShape)
                     .background(MaterialTheme.colorScheme.primaryContainer)
             )
+
             Row {
                 Box(
                     modifier = Modifier.size(toggleSize),
@@ -93,6 +96,7 @@ fun ThemeSwitch(
                         else MaterialTheme.colorScheme.primary
                     )
                 }
+
                 Box(
                     modifier = Modifier.size(toggleSize),
                     contentAlignment = Alignment.Center
@@ -107,6 +111,7 @@ fun ThemeSwitch(
                 }
             }
         }
+
         Spacer(modifier = Modifier.height(150.dp))
     }
 }

@@ -60,8 +60,8 @@ internal fun TypeScreen(
         is UiState.Error -> {
             ErrorView(
                 message = uiState.exception.message,
-                modifier = Modifier.fillMaxSize(),
-                refresh = viewModel.typeUiState::restart
+                refresh = viewModel.typeUiState::restart,
+                modifier = Modifier.fillMaxSize()
             )
         }
     }
@@ -81,13 +81,14 @@ internal fun TypeContent(
                 animation = tween(
                     durationMillis = 30000,
                     easing = LinearEasing
-                ),
+                )
             )
         )
     }
 
     val screenWidthDp: Dp = LocalConfiguration.current.screenWidthDp.dp
     val radius = screenWidthDp / 2f - 30.dp
+
     Box(
         modifier = Modifier
             .fillMaxSize()
