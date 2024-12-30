@@ -1,7 +1,9 @@
 package com.chh.compose.core.data.di
 
 import com.chh.compose.core.data.repository.DefaultPokemonRepository
+import com.chh.compose.core.data.repository.DefaultThemeRepository
 import com.chh.compose.core.data.repository.PokemonRepository
+import com.chh.compose.core.data.repository.ThemeRepository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -17,5 +19,11 @@ internal abstract class DataModule {
     abstract fun bindPokemonRepository(
         pokemonRepository: DefaultPokemonRepository
     ): PokemonRepository
+
+    @Binds
+    @Singleton
+    abstract fun bindThemeRepository(
+        themeRepository: DefaultThemeRepository
+    ): ThemeRepository
 
 }
